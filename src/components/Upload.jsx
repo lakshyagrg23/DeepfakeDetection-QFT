@@ -1,23 +1,43 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Upload = () => {
-  const [mediaType, setMediaType] = useState(null); // To track whether image or video is selected
+  const [mediaType, setMediaType] = useState(null); // Track whether image or video is selected
   const [selectedFile, setSelectedFile] = useState(null);
+  const [prediction, setPrediction] = useState(null); // To store the prediction result
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedFile || !mediaType) {
       alert('Please select a file and media type!');
       return;
     }
-    // Send the file to the correct ML model (image or video) based on mediaType
-    console.log('Uploading:', selectedFile, 'as', mediaType);
 
-    // Add logic to handle file upload and send to ML model
+    // Prepare form data
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    try {
+      // Send request to Flask API based on mediaType
+      const endpoint = mediaType === 'image' ? 'http://127.0.0.1:5000/predict-image' : 'http://127.0.0.1:5000/predict-video';
+      const response = await axios.post(endpoint, formData);
+
+      console.log("Response from Flask:", response);
+
+      // Update prediction result and Check if response contains the expected fields
+    if (response.data && response.data.prediction && response.data.confidence !== undefined) {
+      setPrediction(`Prediction: ${response.data.prediction}, Confidence: ${response.data.confidence}`);
+    } else {
+      throw new Error('Unexpected response format');
+    }
+  } catch (error) {
+    console.error("Error uploading file:", error);
+    alert('Failed to process the file. Please try again.');
+  }
   };
 
   return (
@@ -60,6 +80,14 @@ const Upload = () => {
       <p className="text-gray-600 mt-4">
         Please select whether you are uploading an image or a video file. The file will be analyzed by the respective model.
       </p>
+
+      {/* Display prediction result */}
+      {prediction && (
+        <div className="mt-4 text-center">
+          <h3 className="text-xl font-semibold">Prediction Result:</h3>
+          <p>{prediction}</p>
+        </div>
+      )}
     </div>
   );
 };
