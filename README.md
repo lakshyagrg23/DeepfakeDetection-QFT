@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# Deepfake Detection Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A web application built to detect deepfake images and videos using machine learning models. This project aims to provide users with an easy-to-use interface for uploading media files and receiving predictions on whether the content is a deepfake or authentic.
 
-## Available Scripts
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Installation and Setup](#installation-and-setup)
+- [Usage](#usage)
+- [License](#license)
 
-In the project directory, you can run:
+## Overview
+This application uses a custom-trained deep learning model to classify images and videos as deepfake or authentic. Users can upload media files through a frontend interface, which sends the files to a backend server for analysis. The backend then processes the file using a convolutional neural network (CNN) and returns the results to the user.
 
-### `npm start`
+## Features
+- **Deepfake Detection**: Detects whether an uploaded image or video is a deepfake.
+- **User Authentication**: Secure login and signup functionality.
+- **Upload and View History**: Users can upload images and view past results.
+- **Confidence Score**: The model provides a confidence score indicating the likelihood that a media file is a deepfake.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies Used
+- **Frontend**: React.js, Tailwind CSS
+- **Backend**: Flask (Python)
+- **Machine Learning**: TensorFlow, Keras (for CNN model)
+- **Firebase**: Authentication and storage
+- **Cloud Services**: Firebase, or local Flask API for processing media files
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
+```bash
+deepfake-detection
+├── models                  # ML models (e.g., image_model.h5)
+├── public                  # Public assets for React app
+├── src
+│   ├── components          # React components
+│   ├── firebase            # Firebase configuration files (if using Firebase)
+│   ├── pages               # Main pages (Home, Dashboard, etc.)
+│   ├── App.js              # Main app entry point
+│   ├── index.js            # React root
+│   └── ...                 # Other frontend files
+├── app.py                  # Flask backend server
+├── README.md               # Project documentation
+└── ...                     # Other configuration files (package.json, etc.)
+```
+## Installation and Setup
 
-### `npm test`
+### Prerequisites
+- **Node.js** and **npm** installed for the React frontend.
+- **Python** and **pip** for the Flask backend.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend Setup (React)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/lakshyagrg23/DeepfakeDetection.git
+   cd DeepfakeDetection
 
-### `npm run build`
+2. Navigate to the React app directory:
+   ```bash
+   cd src
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Install dependencies:
+   ```bash
+   npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. Start the React development server:
+   ```bash
+   npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The React app should now be running at http://localhost:3000.
 
-### `npm run eject`
+### Backend Setup (Flask)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Install Python dependencies (ensure you're in the root project directory):
+   ```bash
+   pip install -r requirements.txt
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Run the Flask server:
+   ```bash
+   python app.py
+The Flask server should now be running at http://127.0.0.1:5000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. If you're using Firebase for authentication or storage, configure Firebase by adding your Firebase configuration to the appropriate files.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Environment Variables
 
-## Learn More
+Create a `.env` file in the root directory to store any necessary environment variables, such as Firebase configuration keys or Flask secret keys.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Usage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Sign Up / Log In**: Register or log in using the authentication system.
+- **Upload Media**: Choose to upload an image or video for deepfake detection.
+- **View Results**: After uploading, the system will analyze the media and return a prediction indicating whether it’s likely a deepfake, along with a confidence score.
+- **History**: View past uploads and results in the History section.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
