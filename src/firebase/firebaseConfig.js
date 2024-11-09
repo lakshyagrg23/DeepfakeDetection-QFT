@@ -3,14 +3,14 @@ import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBGRqjVt2DD7moml7mOBJdxChC32gPs824",
-    authDomain: "deepfake-detector-4217f.firebaseapp.com",
-    projectId: "deepfake-detector-4217f",
-    storageBucket: "deepfake-detector-4217f.firebasestorage.app",
-    messagingSenderId: "1051840243220",
-    appId: "1:1051840243220:web:668c8e27d556f925252901",
-    measurementId: "G-TYYW57CX6W"
-  };
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
+  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app); 
