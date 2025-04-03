@@ -87,7 +87,7 @@ Create a `.env` file in the root directory to store any necessary environment va
 ## Usage
 
 - **Sign Up / Log In**: Register or log in using the authentication system.
-- **Upload Media**: Choose to upload an image or video for deepfake detection.
+- **Upload Media**: Choose to upload an image for deepfake detection.
 - **View Results**: After uploading, the system will analyze the media and return a prediction indicating whether it’s likely a deepfake, along with a confidence score.
 - **History**: View past uploads and results in the History section.
 
