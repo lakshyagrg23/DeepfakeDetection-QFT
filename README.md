@@ -15,6 +15,9 @@ By employing QFT, the system enhances deepfake detection beyond traditional FFT-
 - **Deep Learning-Based Classification** – A convolutional neural network (CNN) is trained to differentiate between real and fake images using the enriched feature set.
 - **Adaptive to Multiple Deepfake Techniques** – Designed to work across different deepfake generation methods, including GAN-based, autoencoder-based, and diffusion model-based manipulations.
 
+## Quantum Circuit
+![WhatsApp Image 2025-04-04 at 02 09 48_86759d34](https://github.com/user-attachments/assets/84fe25a2-4c95-4f9e-8a73-f698621d0477)
+
 
 ## Technologies Used
 - **Frameworks & Libraries**: TensorFlow/Keras, PyTorch, NumPy
@@ -22,6 +25,10 @@ By employing QFT, the system enhances deepfake detection beyond traditional FFT-
 - **Frontend**: React.js, Tailwind CSS
 - **Backend**: Python
 - **Database**: Firebase
+
+## Results and Analysis
+![WhatsApp Image 2025-04-04 at 02 10 09_a51e707f](https://github.com/user-attachments/assets/d617c59c-f5c2-43f5-9fe9-1efda194a9e2)
+
 
 ## Project Structure
 ```bash
