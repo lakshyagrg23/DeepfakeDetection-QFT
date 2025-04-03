@@ -1,47 +1,45 @@
-# Deepfake Detection Web Application
+# DeepFakeShield: AI-Powered Deepfake Detection Using Quantum Fourier Transform and CNN
 
-A web application built to detect deepfake images and videos using machine learning models. This project aims to provide users with an easy-to-use interface for uploading media files and receiving predictions on whether the content is a deepfake or authentic.
+Deepfake technology has advanced significantly, making it increasingly difficult to distinguish between real and manipulated images. These synthetic media pose serious threats in misinformation, identity fraud, and cybercrime. Traditional detection methods struggle with the subtle artifacts in deepfake images.
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Installation and Setup](#installation-and-setup)
-- [Usage](#usage)
-- [License](#license)
+By employing Quantum Fourier Transform, our proposed model enhances deepfake detection beyond traditional methods
 
 ## Overview
-This application uses a custom-trained deep learning model to classify images and videos as deepfake or authentic. Users can upload media files through a frontend interface, which sends the files to a backend server for analysis. The backend then processes the file using a convolutional neural network (CNN) and returns the results to the user.
+This model is a deep learning-based solution designed to detect deepfake images effectively. The system extracts quantum frequency features using QFT and integrates them with spatial domain features from the original image. This combined representation is then processed by a CNN to classify images as real or fake.
 
-## Features
-- **Deepfake Detection**: Detects whether an uploaded image or video is a deepfake.
-- **User Authentication**: Secure login and signup functionality.
-- **Upload and View History**: Users can upload images and view past results.
-- **Confidence Score**: The model provides a confidence score indicating the likelihood that a media file is a deepfake.
+By employing QFT, the system enhances deepfake detection beyond traditional FFT-based methods, capturing subtle perturbations introduced by deepfake generation techniques. The model is trained on benchmark datasets containing real and deepfake images to ensure high accuracy and robustness.
+
+## Features and Functionalities
+- **Quantum Fourier Transform (QFT) Feature Extraction** – Captures subtle frequency anomalies introduced by deepfake generation methods, enhancing detection accuracy.
+- **Hybrid Feature Representation** – Combines QFT-extracted frequency domain features with the original image's spatial information, allowing the CNN to learn more comprehensive patterns.
+- **Deep Learning-Based Classification** – A convolutional neural network (CNN) is trained to differentiate between real and fake images using the enriched feature set.
+- **Adaptive to Multiple Deepfake Techniques** – Designed to work across different deepfake generation methods, including GAN-based, autoencoder-based, and diffusion model-based manipulations.
+
 
 ## Technologies Used
+- **Frameworks & Libraries**: TensorFlow/Keras, PyTorch, NumPy
+- **Deep Learning Model**: Convolutional Neural Networks (CNNs)
 - **Frontend**: React.js, Tailwind CSS
-- **Backend**: Flask (Python)
-- **Machine Learning**: TensorFlow, Keras (for CNN model)
-- **Firebase**: Authentication and storage
-- **Cloud Services**: Firebase, or local Flask API for processing media files
+- **Backend**: Python
+- **Database**: Firebase
 
 ## Project Structure
 ```bash
-deepfake-detection
-├── models                  # ML models (e.g., image_model.h5)
-├── public                  # Public assets for React app
-├── src
-│   ├── components          # React components
-│   ├── firebase            # Firebase configuration files (if using Firebase)
-│   ├── pages               # Main pages (Home, Dashboard, etc.)
-│   ├── App.js              # Main app entry point
-│   ├── index.js            # React root
-│   └── ...                 # Other frontend files
-├── app.py                  # Flask backend server
-├── README.md               # Project documentation
-└── ...                     # Other configuration files (package.json, etc.)
+deepfake-detection/
+│── assets/
+│── client/
+│   ├── node_modules/
+│   ├── public/
+│   ├── src/
+│   ├── .env
+│   ├── package-lock.json
+│   ├── package.json
+│── models/
+│── server/
+│   ├── app.py
+│   ├── firebase.json
+│── .gitignore
+│── README.md
 ```
 ## Installation and Setup
 
