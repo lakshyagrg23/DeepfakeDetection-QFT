@@ -46,21 +46,21 @@ def predict_image():
 
     # Predict using the model
     prediction = image_model.predict([image_array, fft_features])[0][0]
-    is_deepfake = prediction < 0.5  # Assuming threshold of 0.5 for binary classification
+    is_deepfake = prediction < 0.51  # Assuming threshold of 0.5 for binary classification
 
-    # Run prediction
-    prediction = image_model.predict([image_array, fft_features])[0][0]
-    is_deepfake = prediction < 0.5  # Threshold for binary classification
+    # # Run prediction
+    # prediction = image_model.predict([image_array, fft_features])[0][0]
+    # is_deepfake = prediction < 0.5  # Threshold for binary classification
 
     # Log the response
     response = {
-        "prediction": "deepfake" if is_deepfake else "authentic",
+        "prediction": "Deepfake" if is_deepfake else "Authentic",
         "confidence": float(prediction)
     }
     print("Response:", response)  # Print the response to the terminal for debugging
 
     return jsonify({
-        "prediction": "deepfake" if is_deepfake else "authentic",
+        "prediction": "Deepfake" if is_deepfake else "Authentic",
         "confidence": float(prediction)
     })
 

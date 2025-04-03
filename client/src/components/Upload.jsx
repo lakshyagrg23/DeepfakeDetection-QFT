@@ -29,8 +29,8 @@ const Upload = () => {
       console.log("Response from Flask:", response);
 
       // Update prediction result and Check if response contains the expected fields
-    if (response.data && response.data.prediction && response.data.confidence !== undefined) {
-      setPrediction(`Prediction: ${response.data.prediction}, Confidence: ${response.data.confidence}`);
+    if (response.data && response.data.prediction) {
+      setPrediction(`Prediction: ${response.data.prediction}`);
     } else {
       throw new Error('Unexpected response format');
     }
